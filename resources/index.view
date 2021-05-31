@@ -115,12 +115,12 @@
       <arc x="0" y="0" width="90" height="90" arc-width="3" start-angle="0" sweep-angle="360" opacity="0.75" class="accentcolour"/>
     </symbol>
 
-    <symbol id="info">
-      <rect x="0" y="0" width="90" height="36" fill="black" opacity="0.25"/>
-      <line x1="0" y1="0" x2="90" y2="0" stroke-width="3" opacity="0.75" class="accentcolour"/>
-      <line x1="0" y1="36" x2="90" y2="36" stroke-width="3" opacity="0.75" class="accentcolour"/>
+    <symbol id="calendar">
+      <rect x="0" y="0" width="94" height="36" fill="black" opacity="0.25"/>
+      <line x1="0" y1="0" x2="94" y2="0" stroke-width="3" opacity="0.75" class="accentcolour"/>
+      <line x1="0" y1="36" x2="94" y2="36" stroke-width="3" opacity="0.75" class="accentcolour"/>
       <line x1="0" y1="0" x2="0" y2="36" stroke-width="3" opacity="0.75" class="accentcolour"/>
-      <line x1="90" y1="0" x2="90" y2="36" stroke-width="3" opacity="0.75" class="accentcolour"/>
+      <line x1="94" y1="0" x2="94" y2="36" stroke-width="3" opacity="0.75" class="accentcolour"/>
     </symbol>
 
   </defs>
@@ -198,10 +198,10 @@
     </section>
 
     <!-- Right: -->
-    <section x="50%+45" y="50%-18" width="90" height="36">
-      <use id="calendar" href="#info">
-        <text id="dayField" x="0%+28" y="50%+10" class="daytext markercolour"/>
-        <text id="dateField" x="0%+70" y="50%+10" class="datetext markercolour"/>
+    <section x="50%+41" y="50%-18" width="94" height="36">
+      <use href="#calendar">
+        <text id="dayField" x="4" y="50%+10" class="daytext markercolour"/>
+        <text id="dateField" x="100%-4" y="50%+10" class="datetext markercolour"/>
       </use>
     </section>
 
