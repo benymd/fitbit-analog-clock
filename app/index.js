@@ -4,6 +4,7 @@ import { units } from "user-settings";
 import { HeartRateSensor } from "heart-rate";
 import { BodyPresenceSensor } from "body-presence";
 import { today } from 'user-activity';
+import { goals } from "user-activity"
 import { me } from "appbit";
 import { battery } from "power";
 import * as messaging from "messaging";
@@ -13,7 +14,6 @@ const SETTINGS_TYPE = "cbor";
 const SETTINGS_FILE = "settings.cbor";
 
 let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
-let months = ["JAN ", "FEB", "MAR", "APR", "MAY", "JUN ", "JUL ", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
 let hourhand = document.getElementById("hourhand");
 let minutehand = document.getElementById("minutehand");
@@ -25,12 +25,21 @@ let backgroundGradient = document.getElementById("backgroundGradient");
 let dayField = document.getElementById("dayField");
 let dateField = document.getElementById("dateField");
 let hrField = document.getElementById("hrField");
-let amField = document.getElementById("amField");
+
+let azmField = document.getElementById("azmField");
 let distField = document.getElementById("distField");
 let dist = 0;
+let distGoal = 0;
 let stepsField = document.getElementById("stepsField");
 let floorsField = document.getElementById("floorsField");
 let calsField = document.getElementById("calsField");
+
+let azmMeter = document.getElementById("azmMeter");
+let distMeter = document.getElementById("distMeter");
+let stepsMeter = document.getElementById("stepsMeter");
+let floorsMeter = document.getElementById("floorsMeter");
+let calsMeter = document.getElementById("calsMeter");
+
 let batteryMeter = document.getElementById("batteryMeter");
 let batteryPercent = document.getElementById("batteryPercent");
 
@@ -118,6 +127,17 @@ body.onreading = () => {
 };
 body.start();
 
+function getProgressAngle(progress, goal) {
+  if (goal == 0) {
+    return 0;
+  }
+  let arc = (progress / goal) * 360;
+  if (arc > 360) {
+    arc = 360;
+  }
+  return arc;
+}
+
 clock.granularity = "seconds";
 clock.ontick = (evt) => {
   dayField.text = days[evt.date.getDay()];
@@ -127,20 +147,30 @@ clock.ontick = (evt) => {
   secondhand.groupTransform.rotate.angle = (6 * evt.date.getSeconds());
   hourhand24.groupTransform.rotate.angle = (15 * evt.date.getHours()) + (0.25 * evt.date.getMinutes());
   if (today.adjusted.activeZoneMinutes !== undefined) {
-    amField.text = today.adjusted.activeZoneMinutes.total;
+    azmField.text = today.adjusted.activeZoneMinutes.total;
+    azmMeter.sweepAngle = getProgressAngle(today.adjusted.activeZoneMinutes.total, goals.activeZoneMinutes.total)
   }
   if (today.adjusted.steps != undefined) {
     stepsField.text = today.adjusted.steps;
+    stepsMeter.sweepAngle = getProgressAngle(today.adjusted.steps, goals.steps)
   }
   if (today.adjusted.distance != undefined) {
     dist = (units.distance === "metric" ? today.adjusted.distance * 0.001 : today.adjusted.distance * 0.000621371);
-    distField.text = Math.floor(dist * 100) / 100;
+    dist = Math.floor(dist * 100) / 100;
+    distField.text = dist;
+
+    distGoal = (units.distance === "metric" ? goals.distance * 0.001 : goals.distance * 0.000621371);
+    distGoal = Math.floor(distGoal * 100) / 100;
+    distMeter.sweepAngle = getProgressAngle(dist, distGoal);
   }
   if (today.adjusted.elevationGain != undefined) {
     floorsField.text = today.adjusted.elevationGain;
+    
+    floorsMeter.sweepAngle = getProgressAngle(today.adjusted.elevationGain, goals.elevationGain)
   }
   if (today.adjusted.calories != undefined) {
     calsField.text = today.adjusted.calories;
+    calsMeter.sweepAngle = getProgressAngle(today.adjusted.calories, goals.calories)
   }
   batteryMeter.sweepAngle = 3.6 * battery.chargeLevel;
   batteryPercent.text = `${battery.chargeLevel}%`

@@ -147,24 +147,29 @@
       <use href="#complicationL">
         <use id="stats-cycle" href="#cycleview">
           <use href="#cycleview-item">
+            <arc id="stepsMeter" class="accentcolour" x="3" y="3" width="114" height="114" arc-width="9" start-angle="0" opacity="0.35"/>
             <image href="steps_36px.png" class="statsicon markercolour"/>
             <text id="stepsField" class="statsfield markercolour" text-length="8"/>
           </use>
           <use href="#cycleview-item">
+            <arc id="floorsMeter" class="accentcolour" x="3" y="3" width="114" height="114" arc-width="9" start-angle="0" opacity="0.35"/>
             <image href="floors_36px.png" class="statsicon markercolour"/>
             <text id="floorsField" class="statsfield markercolour" text-length="8"/>
           </use>
           <use href="#cycleview-item">
+            <arc id="distMeter" class="accentcolour" x="3" y="3" width="114" height="114" arc-width="9" start-angle="0" opacity="0.35"/>
             <image href="distance_36px.png" class="statsicon markercolour"/>
             <text id="distField" class="statsfield markercolour" text-length="8"/>
           </use>
           <use href="#cycleview-item">
+            <arc id="calsMeter" class="accentcolour" x="3" y="3" width="114" height="114" arc-width="9" start-angle="0" opacity="0.35"/>
             <image href="calories_36px.png" class="statsicon markercolour"/>
             <text id="calsField" class="statsfield markercolour" text-length="8"/>            
           </use>
           <use href="#cycleview-item">
+            <arc id="azmMeter" class="accentcolour" x="3" y="3" width="114" height="114" arc-width="9" start-angle="0" opacity="0.35"/>
             <image href="azm_36px.png" class="statsicon markercolour"/>
-            <text id="amField" class="statsfield markercolour" text-length="8"/>
+            <text id="azmField" class="statsfield markercolour" text-length="8"/>
           </use>
         </use>
       </use>
