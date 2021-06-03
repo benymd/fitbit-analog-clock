@@ -139,6 +139,7 @@
       <use href="#complicationL">
         <image id="hrIcon" href="heart_rate_36px.png" class="statsicon markercolour"/>
         <text id="hrField" class="statsfield markercolour" text-length="8"/>
+        <text id="hrUnit" class="statsunit markercolour">bpm</text>
       </use>
     </section>
 
@@ -150,26 +151,31 @@
             <arc id="stepsMeter" class="accentcolour" x="3" y="3" width="114" height="114" arc-width="9" start-angle="0" opacity="0.35"/>
             <image href="steps_36px.png" class="statsicon markercolour"/>
             <text id="stepsField" class="statsfield markercolour" text-length="8"/>
+            <text id="stepsUnit" class="statsunit markercolour">steps</text>
           </use>
           <use href="#cycleview-item">
             <arc id="floorsMeter" class="accentcolour" x="3" y="3" width="114" height="114" arc-width="9" start-angle="0" opacity="0.35"/>
             <image href="floors_36px.png" class="statsicon markercolour"/>
             <text id="floorsField" class="statsfield markercolour" text-length="8"/>
+            <text id="floorsUnit" class="statsunit markercolour">floors</text>
           </use>
           <use href="#cycleview-item">
             <arc id="distMeter" class="accentcolour" x="3" y="3" width="114" height="114" arc-width="9" start-angle="0" opacity="0.35"/>
             <image href="distance_36px.png" class="statsicon markercolour"/>
             <text id="distField" class="statsfield markercolour" text-length="8"/>
+            <text id="distUnit" class="statsunit markercolour">km</text>
           </use>
           <use href="#cycleview-item">
             <arc id="calsMeter" class="accentcolour" x="3" y="3" width="114" height="114" arc-width="9" start-angle="0" opacity="0.35"/>
             <image href="calories_36px.png" class="statsicon markercolour"/>
-            <text id="calsField" class="statsfield markercolour" text-length="8"/>            
+            <text id="calsField" class="statsfield markercolour" text-length="8"/>
+            <text id="calsUnit" class="statsunit markercolour">kcal</text>
           </use>
           <use href="#cycleview-item">
             <arc id="azmMeter" class="accentcolour" x="3" y="3" width="114" height="114" arc-width="9" start-angle="0" opacity="0.35"/>
             <image href="azm_36px.png" class="statsicon markercolour"/>
             <text id="azmField" class="statsfield markercolour" text-length="8"/>
+            <text id="azmUnit" class="statsunit markercolour">minutes</text>
           </use>
         </use>
       </use>
@@ -196,14 +202,16 @@
           </use>
           <use href="#cycleview-item">
             <arc id="batteryMeter" class="accentcolour" x="3" y="3" width="84" height="84" arc-width="9" start-angle="0" opacity="0.35"/>
-            <text id="batteryPercent" class="infofield markercolour" text-length="4"/>
+            <image href="battery_24px.png" class="smallicon markercolour"/>
+            <text id="batteryField" class="smallfield markercolour" text-length="4"/>
+            <text id="batteryUnit" class="smallunit markercolour">%</text>
           </use>
         </use>
       </use>
     </section>
 
     <!-- Right: -->
-    <section x="50%+41" y="50%-18" width="94" height="36">
+    <section x="50%+41" y="50%-18" width="92" height="36">
       <use href="#calendar">
         <text id="dayField" x="4" y="50%+10" class="daytext markercolour"/>
         <text id="dateField" x="100%-4" y="50%+10" class="datetext markercolour"/>

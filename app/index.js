@@ -26,22 +26,30 @@ let dayField = document.getElementById("dayField");
 let dateField = document.getElementById("dateField");
 let hrField = document.getElementById("hrField");
 
-let azmField = document.getElementById("azmField");
+let stepsField = document.getElementById("stepsField");
+let stepsMeter = document.getElementById("stepsMeter");
+//let stepsUnit = document.getElementById("stepsUnit");
+
+let floorsField = document.getElementById("floorsField");
+let floorsMeter = document.getElementById("floorsMeter");
+//let floorsUnit = document.getElementById("floorsUnit");
+
 let distField = document.getElementById("distField");
+let distMeter = document.getElementById("distMeter");
+//let distUnit = document.getElementById("distUnit");
 let dist = 0;
 let distGoal = 0;
-let stepsField = document.getElementById("stepsField");
-let floorsField = document.getElementById("floorsField");
+
 let calsField = document.getElementById("calsField");
-
-let azmMeter = document.getElementById("azmMeter");
-let distMeter = document.getElementById("distMeter");
-let stepsMeter = document.getElementById("stepsMeter");
-let floorsMeter = document.getElementById("floorsMeter");
 let calsMeter = document.getElementById("calsMeter");
+//let calsUnit = document.getElementById("calsUnit");
 
+let azmField = document.getElementById("azmField");
+let azmMeter = document.getElementById("azmMeter");
+//let azmUnit = document.getElementById("azmUnit");
+
+let batteryField = document.getElementById("batteryField");
 let batteryMeter = document.getElementById("batteryMeter");
-let batteryPercent = document.getElementById("batteryPercent");
 
 let settings = loadSettings();
 function loadSettings() {
@@ -146,34 +154,39 @@ clock.ontick = (evt) => {
   minutehand.groupTransform.rotate.angle = (6 * evt.date.getMinutes()) + (0.1 * evt.date.getSeconds());
   secondhand.groupTransform.rotate.angle = (6 * evt.date.getSeconds());
   hourhand24.groupTransform.rotate.angle = (15 * evt.date.getHours()) + (0.25 * evt.date.getMinutes());
-  if (today.adjusted.activeZoneMinutes !== undefined) {
-    azmField.text = today.adjusted.activeZoneMinutes.total;
-    azmMeter.sweepAngle = getProgressAngle(today.adjusted.activeZoneMinutes.total, goals.activeZoneMinutes.total)
-  }
   if (today.adjusted.steps != undefined) {
     stepsField.text = today.adjusted.steps;
     stepsMeter.sweepAngle = getProgressAngle(today.adjusted.steps, goals.steps)
+    //stepsUnit.text = "steps";
+  }
+  if (today.adjusted.elevationGain != undefined) {
+    floorsField.text = today.adjusted.elevationGain;
+    floorsMeter.sweepAngle = getProgressAngle(today.adjusted.elevationGain, goals.elevationGain)
+    //floorsUnit.text = "floors";
   }
   if (today.adjusted.distance != undefined) {
     dist = (units.distance === "metric" ? today.adjusted.distance * 0.001 : today.adjusted.distance * 0.000621371);
     dist = Math.floor(dist * 100) / 100;
     distField.text = dist;
+    //distUnit.text = "km";
 
     distGoal = (units.distance === "metric" ? goals.distance * 0.001 : goals.distance * 0.000621371);
     distGoal = Math.floor(distGoal * 100) / 100;
     distMeter.sweepAngle = getProgressAngle(dist, distGoal);
   }
-  if (today.adjusted.elevationGain != undefined) {
-    floorsField.text = today.adjusted.elevationGain;
-    
-    floorsMeter.sweepAngle = getProgressAngle(today.adjusted.elevationGain, goals.elevationGain)
-  }
   if (today.adjusted.calories != undefined) {
     calsField.text = today.adjusted.calories;
     calsMeter.sweepAngle = getProgressAngle(today.adjusted.calories, goals.calories)
+    //calsUnit.text = "kcal";
   }
+  if (today.adjusted.activeZoneMinutes !== undefined) {
+    azmField.text = today.adjusted.activeZoneMinutes.total;
+    azmMeter.sweepAngle = getProgressAngle(today.adjusted.activeZoneMinutes.total, goals.activeZoneMinutes.total)
+    //azmUnit.text = "min";
+  }
+  //batteryField.text = `${battery.chargeLevel}%`
+  batteryField.text = battery.chargeLevel
   batteryMeter.sweepAngle = 3.6 * battery.chargeLevel;
-  batteryPercent.text = `${battery.chargeLevel}%`
 };
 
 setColours(settings.accentcolor, settings.markercolor);
