@@ -1,0 +1,14 @@
+msgid "Background Color"
+msgstr "Background Color"
+
+msgid "Main Color"
+msgstr "Main Color"
+
+msgid "Watch Hands Opacity"
+msgstr "Watch Hands Opacity"
+
+msgid "Invisible - Opaque"
+msgstr "Invisible - Opaque"
+
+msgid "Show Background Gradient"
+msgstr "Show Background Gradient"

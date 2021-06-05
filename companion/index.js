@@ -20,7 +20,6 @@ settingsStorage.onchange = evt => {
   sendVal(data);
 };
 
-
 // Restore any previously saved settings and send to the device
 function restoreSettings() {
   for (let index = 0; index < settingsStorage.length; index++) {   
@@ -34,7 +33,6 @@ function restoreSettings() {
     }
   }
 }
-
 
 // Send data to device using Messaging API
 function sendVal(data) {

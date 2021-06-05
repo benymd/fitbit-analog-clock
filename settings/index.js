@@ -1,3 +1,5 @@
+import { gettext } from "i18n";
+
 const colorSet = [
   {color: "black"},
   {color: "darkslategrey"},
@@ -52,21 +54,21 @@ const colorSet = [
 function mySettings(props) {
   return (
     <Page>
-      <Section title={<Text bold align="center">Background Color</Text>}>
+      <Section title={<Text bold align="center">{gettext("Background Color")}</Text>}>
         <ColorSelect
           settingsKey="accentColor"
           colors={colorSet}
         />
       </Section>
-      <Section title={<Text bold align="center">Main Color</Text>}>
+      <Section title={<Text bold align="center">{gettext("Main Color")}</Text>}>
         <ColorSelect
           settingsKey="markerColor"
           colors={colorSet}
         />
       </Section>
-      <Section title={<Text bold align="center">Watch Hands Opacity</Text>}>
+      <Section title={<Text bold align="center">{gettext("Watch Hands Opacity")}</Text>}>
           <Slider
-            label="Invisible - Opaque"
+            label={gettext("Invisible - Opaque")}
             settingsKey="handsOpacity"
             min="0.0"
             max="1.0"
@@ -76,7 +78,7 @@ function mySettings(props) {
       <Section>
         <Toggle
           settingsKey="showBackgroundGradient"
-          label="Show Background Gradient"
+          label={gettext("Show Background Gradient")}
         />
       </Section>
     </Page>

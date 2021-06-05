@@ -10,7 +10,7 @@
   "fitbit": {
     "appUUID": "1c69e8e9-766f-4ce9-a503-ac2af414db40",
     "appType": "clockface",
-    "appDisplayName": "Analog Clock 90's",
+    "appDisplayName": "Classic",
     "iconFile": "resources/icon.png",
     "wipeColor": "#ffffff",
     "requestedPermissions": [

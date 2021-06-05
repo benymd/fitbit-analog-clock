@@ -9,6 +9,7 @@ import { me } from "appbit";
 import { battery } from "power";
 import * as messaging from "messaging";
 import * as fs from "fs";
+import { gettext } from "i18n";
 
 const SETTINGS_TYPE = "cbor";
 const SETTINGS_FILE = "settings.cbor";

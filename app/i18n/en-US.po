@@ -1,0 +1,14 @@
+msgid "steps"
+msgstr "steps"
+
+msgid "floors"
+msgstr "floors"
+
+msgid "km"
+msgstr "km"
+
+msgid "kcal"
+msgstr "kcal"
+
+msgid "minutes"
+msgstr "minutes"

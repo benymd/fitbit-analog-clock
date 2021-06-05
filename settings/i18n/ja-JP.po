@@ -1,0 +1,14 @@
+msgid "Background Color"
+msgstr "背景色"
+
+msgid "Main Color"
+msgstr "メインカラー"
+
+msgid "Watch Hands Opacity"
+msgstr "時計針の不透明度"
+
+msgid "Invisible - Opaque"
+msgstr "透明 - 不透明"
+
+msgid "Show Background Gradient"
+msgstr "背景色のクラデーションを表示"
