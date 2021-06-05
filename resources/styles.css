@@ -1,58 +1,50 @@
-.markercolour {
-  fill: #c7c7c7;
+.markerColor {
+  fill: white;
 }
 
-.accentcolour {
-  fill: #AF9C3A;
+.accentColor {
+  fill: gold;
 }
 
-.statsicon {
+.statsIcon {
   x: 50%-18;
   y: 18%;
   width: 36;
   height: 36;
 }
 
-.statsfield {
+.statsField {
   x: 50%+1; 
-  y: 70%;
+  y: 68%;
   text-anchor: middle;
   font-family: Seville-Regular;
   font-size: 26;
 }
 
-.statsunit {
+.statsUnit {
   x: 50%+1;
-  y: 100%-20;
+  y: 100%-22;
   text-anchor: middle;
   font-family: Seville-Regular;
-  font-size: 14;
+  font-size: 16;
 }
 
-.infofield {
-  x: 50%+1; 
-  y: 50%+8;
-  text-anchor: middle;
-  font-family: Seville-Regular;
-  font-size: 26;
-}
-
-.smallicon {
+.batteryIcon {
   x: 50%-12;
   y: 16%;
   width: 24;
   height: 24;
 }
 
-.smallfield {
+.batteryField {
   x: 50%+1; 
-  y: 65%;
+  y: 64%;
   text-anchor: middle;
   font-family: Seville-Regular;
   font-size: 24;
 }
 
-.smallunit {
+.batterylUnit {
   x: 50%+1;
   y: 100%-18;
   text-anchor: middle;
@@ -60,58 +52,65 @@
   font-size: 14;
 }
 
+.dayText {
+  text-anchor: middle;
+  font-family: Seville-Regular;
+  font-size: 26;
+  text-length: 8;
+}
 
+.dateText {
+  text-anchor: middle;
+  font-family: Seville-Regular;
+  font-size: 26;
+  text-length: 4;
+}
 
+.hourMarker24text {
+  text-anchor: middle;
+  font-family: Seville-Bold;
+  font-size: 12;
+}
 
-.maindialquarter {
+.meterArc {
+  x: 3;
+  y: 3;
+  width: 114;
+  height: 114;
+  arc-width: 9;
+  start-angle: 0;
+  opacity: 0.35;
+}
+
+.mainDialQuarter {
   x: 0%-4;
   y: -50%+15;
   width: 9;
   height: 8;
 }
 
-.maindialfive {
+.mainDialFive {
   x: 0%-4;
   y: -50%+15;
   width: 9;
   height: 16;
 }
 
-.maindialminute {
+.mainDialMinute {
   x: 0%-1;
   y: -50%;
   width: 3;
   height: 8;
 }
 
-.daytext {
-  text-anchor: start;
-  font-family: Seville-Regular;
-  font-size: 26;
-  text-length: 8;
-}
-
-.datetext {
-  text-anchor: end;
-  font-family: Seville-Regular;
-  font-size: 26;
-  text-length: 4;
-}
-
-.hourmarker24text {
-  text-anchor: middle;
-  font-family: Seville-Bold;
-  font-size: 12;
-}
-
-.hourmarker24tickS {
+.hourMarker24tickS {
   x: 0%;
   y: -45%;
   width: 2;
   height: 2; 
 }
 
-.hourmarker24tickL {
+.hourMarker24tickL {
   x: 0%;
   y: -45%;
   width: 2;

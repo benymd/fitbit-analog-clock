@@ -15,12 +15,10 @@ const SETTINGS_FILE = "settings.cbor";
 
 let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
 
-let hourhand = document.getElementById("hourhand");
-let minutehand = document.getElementById("minutehand");
-let secondhand = document.getElementById("secondhand");
-let outercenterdot = document.getElementById("outercenterdot");
-let innercenterdot = document.getElementById("innercenterdot");
-let hourhand24 = document.getElementById("hourhand24");
+let hourHand = document.getElementById("hourHand");
+let minuteHand = document.getElementById("minuteHand");
+let secondHand = document.getElementById("secondHand");
+let hourHand24 = document.getElementById("hourHand24");
 let backgroundGradient = document.getElementById("backgroundGradient");
 let dayField = document.getElementById("dayField");
 let dateField = document.getElementById("dateField");
@@ -28,25 +26,20 @@ let hrField = document.getElementById("hrField");
 
 let stepsField = document.getElementById("stepsField");
 let stepsMeter = document.getElementById("stepsMeter");
-//let stepsUnit = document.getElementById("stepsUnit");
 
 let floorsField = document.getElementById("floorsField");
 let floorsMeter = document.getElementById("floorsMeter");
-//let floorsUnit = document.getElementById("floorsUnit");
 
 let distField = document.getElementById("distField");
 let distMeter = document.getElementById("distMeter");
-//let distUnit = document.getElementById("distUnit");
 let dist = 0;
 let distGoal = 0;
 
 let calsField = document.getElementById("calsField");
 let calsMeter = document.getElementById("calsMeter");
-//let calsUnit = document.getElementById("calsUnit");
 
 let azmField = document.getElementById("azmField");
 let azmMeter = document.getElementById("azmMeter");
-//let azmUnit = document.getElementById("azmUnit");
 
 let batteryField = document.getElementById("batteryField");
 let batteryMeter = document.getElementById("batteryMeter");
@@ -58,9 +51,9 @@ function loadSettings() {
   }
   catch (ex) {
     return {
-      accentcolor: "#AF9C3A",
-      markercolor: "#C7C7C7",
-      handsopacity: 1.0,
+      accentColor: "gold",
+      markerColor: "white",
+      handsOpacity: 1.0,
       showBackgroundGradient: true
     };
   }
@@ -74,49 +67,48 @@ function saveSettings() {
 messaging.peerSocket.onmessage = evt => {
   if (evt.data.newValue){
     switch (evt.data.key) {
-      case "accentcolor":
-        settings.accentcolor = JSON.parse(evt.data.newValue); 
-        setColours(settings.accentcolor, settings.markercolor);
+      case "accentColor":
+        settings.accentColor = JSON.parse(evt.data.newValue); 
+        setColors(settings.accentColor, settings.markerColor);
         break;
-      case "markercolor":
-        settings.markercolor = JSON.parse(evt.data.newValue); 
-        setColours(settings.accentcolor, settings.markercolor);
+      case "markerColor":
+        settings.markerColor = JSON.parse(evt.data.newValue); 
+        setColors(settings.accentColor, settings.markerColor);
         break;
-      case "handsopacity":
-        settings.handsopacity = JSON.parse(evt.data.newValue); 
-        setHandsOpacity(settings.handsopacity);
+      case "handsOpacity":
+        settings.handsOpacity = JSON.parse(evt.data.newValue); 
+        setHandsOpacity(settings.handsOpacity);
         break;
       case "showBackgroundGradient":
         settings.showBackgroundGradient = JSON.parse(evt.data.newValue); 
-        setBackgroundGradient(settings.showBackgroundGradient, settings.accentcolor);
+        setBackgroundGradient(settings.showBackgroundGradient, settings.accentColor);
         break;
     }    
   }
 };
 
-function setColours(accentcolour, markercolour) {
-  let elements = document.getElementsByClassName("accentcolour");
+function setColors(accentColor, markerColor) {
+  let elements = document.getElementsByClassName("accentColor");
   elements.forEach(function (element) {
-    element.style.fill = accentcolour;
+    element.style.fill = accentColor;
   });
-  backgroundGradient.gradient.colors.c1 = accentcolour;
+  backgroundGradient.gradient.colors.c1 = accentColor;
 
-  elements = document.getElementsByClassName("markercolour");
+  elements = document.getElementsByClassName("markerColor");
   elements.forEach(function (element) {
-    element.style.fill = markercolour;
+    element.style.fill = markerColor;
   });
 }
 
-function setHandsOpacity(handsopacity) {
-  hourhand.style.opacity = handsopacity;
-  minutehand.style.opacity = handsopacity;
-  secondhand.style.opacity = handsopacity;
-  outercenterdot.style.opacity = handsopacity;
-  innercenterdot.style.opacity = handsopacity;
+function setHandsOpacity(handsOpacity) {
+  hourHand.style.opacity = handsOpacity;
+  minuteHand.style.opacity = handsOpacity;
+  secondHand.style.opacity = handsOpacity;
+  hourHand24.style.opacity = handsOpacity;
 }
 
-function setBackgroundGradient(showBackgroundGradient, accentColour) {
-  backgroundGradient.gradient.colors.c1 = (showBackgroundGradient ? accentColour : "black");
+function setBackgroundGradient(showBackgroundGradient, accentColor) {
+  backgroundGradient.gradient.colors.c1 = (showBackgroundGradient ? accentColor : "black");
 }
 
 let hrm = new HeartRateSensor();
@@ -150,25 +142,22 @@ clock.granularity = "seconds";
 clock.ontick = (evt) => {
   dayField.text = days[evt.date.getDay()];
   dateField.text = evt.date.getDate();
-  hourhand.groupTransform.rotate.angle = (30 * (evt.date.getHours() % 12)) + (0.5 * evt.date.getMinutes());
-  minutehand.groupTransform.rotate.angle = (6 * evt.date.getMinutes()) + (0.1 * evt.date.getSeconds());
-  secondhand.groupTransform.rotate.angle = (6 * evt.date.getSeconds());
-  hourhand24.groupTransform.rotate.angle = (15 * evt.date.getHours()) + (0.25 * evt.date.getMinutes());
+  hourHand.groupTransform.rotate.angle = (30 * (evt.date.getHours() % 12)) + (0.5 * evt.date.getMinutes());
+  minuteHand.groupTransform.rotate.angle = (6 * evt.date.getMinutes()) + (0.1 * evt.date.getSeconds());
+  secondHand.groupTransform.rotate.angle = (6 * evt.date.getSeconds());
+  hourHand24.groupTransform.rotate.angle = (15 * evt.date.getHours()) + (0.25 * evt.date.getMinutes());
   if (today.adjusted.steps != undefined) {
     stepsField.text = today.adjusted.steps;
     stepsMeter.sweepAngle = getProgressAngle(today.adjusted.steps, goals.steps)
-    //stepsUnit.text = "steps";
   }
   if (today.adjusted.elevationGain != undefined) {
     floorsField.text = today.adjusted.elevationGain;
     floorsMeter.sweepAngle = getProgressAngle(today.adjusted.elevationGain, goals.elevationGain)
-    //floorsUnit.text = "floors";
   }
   if (today.adjusted.distance != undefined) {
     dist = (units.distance === "metric" ? today.adjusted.distance * 0.001 : today.adjusted.distance * 0.000621371);
     dist = Math.floor(dist * 100) / 100;
     distField.text = dist;
-    //distUnit.text = "km";
 
     distGoal = (units.distance === "metric" ? goals.distance * 0.001 : goals.distance * 0.000621371);
     distGoal = Math.floor(distGoal * 100) / 100;
@@ -177,18 +166,15 @@ clock.ontick = (evt) => {
   if (today.adjusted.calories != undefined) {
     calsField.text = today.adjusted.calories;
     calsMeter.sweepAngle = getProgressAngle(today.adjusted.calories, goals.calories)
-    //calsUnit.text = "kcal";
   }
   if (today.adjusted.activeZoneMinutes !== undefined) {
     azmField.text = today.adjusted.activeZoneMinutes.total;
     azmMeter.sweepAngle = getProgressAngle(today.adjusted.activeZoneMinutes.total, goals.activeZoneMinutes.total)
-    //azmUnit.text = "min";
   }
-  //batteryField.text = `${battery.chargeLevel}%`
   batteryField.text = battery.chargeLevel
   batteryMeter.sweepAngle = 3.6 * battery.chargeLevel;
 };
 
-setColours(settings.accentcolor, settings.markercolor);
-setBackgroundGradient(settings.showBackgroundGradient, settings.accentcolor);
-setHandsOpacity(settings.handsopacity);
+setColors(settings.accentColor, settings.markerColor);
+setBackgroundGradient(settings.showBackgroundGradient, settings.accentColor);
+setHandsOpacity(settings.handsOpacity);
