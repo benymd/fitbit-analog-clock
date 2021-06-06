@@ -157,7 +157,7 @@
             </g>
           </use>
           <use href="#cycleview-item">
-            <arc id="batteryMeter" class="accentColor" x="3" y="3" width="84" height="84" arc-width="9" start-angle="0" opacity="0.35"/>
+            <arc id="batteryMeter" class="batteryMeter accentColor"/>
             <image href="battery_24px.png" class="batteryIcon markerColor"/>
             <text id="batteryField" class="batteryField markerColor" text-length="4"/>
             <text id="batteryUnit" class="batterylUnit markerColor">%</text>
@@ -166,12 +166,10 @@
       </use>
     </section>
 
-    <!-- Right: Calendar -->
+    <!-- Right: Date -->
     <section x="100%-122" y="50%-18" width="90" height="36">
-      <use href="#calendar">
-        <text id="dayField" class="dayField markerColor"/> <!--4+21-->
-        <text id="dateField" class="dateField markerColor"/> <!--4+14-->
-      </use>
+      <use href="#calendar"/>
+      <text id="dateField" class="dateField markerColor"/>
     </section>
   
     <!-- Bottom sub-dial -->
@@ -179,33 +177,33 @@
       <use href="#complicationL">
         <use id="stats-cycle" href="#cycleview">
           <use href="#cycleview-item">
-            <arc id="stepsMeter" class="meterArc accentColor"/>
+            <arc id="stepsMeter" class="statsMeter accentColor"/>
             <image href="steps_36px.png" class="statsIcon markerColor"/>
-            <text id="stepsField" class="statsField markerColor" text-length="8"/>
+            <text id="stepsField" class="statsField markerColor"/>
             <text id="stepsUnit" class="statsUnit markerColor">_steps</text>
           </use>
           <use href="#cycleview-item">
-            <arc id="floorsMeter" class="meterArc accentColor"/>
+            <arc id="floorsMeter" class="statsMeter accentColor"/>
             <image href="floors_36px.png" class="statsIcon markerColor"/>
-            <text id="floorsField" class="statsField markerColor" text-length="8"/>
+            <text id="floorsField" class="statsField markerColor"/>
             <text id="floorsUnit" class="statsUnit markerColor">_floors</text>
           </use>
           <use href="#cycleview-item">
-            <arc id="distMeter" class="meterArc accentColor"/>
+            <arc id="distMeter" class="statsMeter accentColor"/>
             <image href="distance_36px.png" class="statsIcon markerColor"/>
-            <text id="distField" class="statsField markerColor" text-length="8"/>
+            <text id="distField" class="statsField markerColor"/>
             <text id="distUnit" class="statsUnit markerColor">_km</text>
           </use>
           <use href="#cycleview-item">
-            <arc id="calsMeter" class="meterArc accentColor"/>
+            <arc id="calsMeter" class="statsMeter accentColor"/>
             <image href="calories_36px.png" class="statsIcon markerColor"/>
-            <text id="calsField" class="statsField markerColor" text-length="8"/>
+            <text id="calsField" class="statsField markerColor"/>
             <text id="calsUnit" class="statsUnit markerColor">_kcal</text>
           </use>
           <use href="#cycleview-item">
-            <arc id="azmMeter" class="meterArc accentColor"/>
+            <arc id="azmMeter" class="statsMeter accentColor"/>
             <image href="azm_36px.png" class="statsIcon markerColor"/>
-            <text id="azmField" class="statsField markerColor" text-length="8"/>
+            <text id="azmField" class="statsField markerColor"/>
             <text id="azmUnit" class="statsUnit markerColor">_minutes</text>
           </use>
         </use>

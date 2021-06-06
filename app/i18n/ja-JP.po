@@ -12,3 +12,24 @@ msgstr "kcal"
 
 msgid "minutes"
 msgstr "分"
+
+msgid "day_short_0"
+msgstr "Sun"
+
+msgid "day_short_1"
+msgstr "Mon"
+
+msgid "day_short_2"
+msgstr "Tue"
+
+msgid "day_short_3"
+msgstr "Wed"
+
+msgid "day_short_4"
+msgstr "Thu"
+
+msgid "day_short_5"
+msgstr "Fri"
+
+msgid "day_short_6"
+msgstr "Sat"

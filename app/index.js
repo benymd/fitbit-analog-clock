@@ -21,27 +21,21 @@ let minuteHand = document.getElementById("minuteHand");
 let secondHand = document.getElementById("secondHand");
 let hourHand24 = document.getElementById("hourHand24");
 let backgroundGradient = document.getElementById("backgroundGradient");
-let dayField = document.getElementById("dayField");
 let dateField = document.getElementById("dateField");
 let hrField = document.getElementById("hrField");
 
 let stepsField = document.getElementById("stepsField");
 let stepsMeter = document.getElementById("stepsMeter");
-
 let floorsField = document.getElementById("floorsField");
 let floorsMeter = document.getElementById("floorsMeter");
-
 let distField = document.getElementById("distField");
 let distMeter = document.getElementById("distMeter");
 let dist = 0;
 let distGoal = 0;
-
 let calsField = document.getElementById("calsField");
 let calsMeter = document.getElementById("calsMeter");
-
 let azmField = document.getElementById("azmField");
 let azmMeter = document.getElementById("azmMeter");
-
 let batteryField = document.getElementById("batteryField");
 let batteryMeter = document.getElementById("batteryMeter");
 
@@ -139,14 +133,35 @@ function getProgressAngle(progress, goal) {
   return arc;
 }
 
+let debug = false;
+let weekdayNum = 0;
+let date = 1; 
+let hh = 10;
+let mm = 8;
+let ss = 42;
+let dayName = "MON";
+
 clock.granularity = "seconds";
 clock.ontick = (evt) => {
-  dayField.text = days[evt.date.getDay()];
-  dateField.text = evt.date.getDate();
-  hourHand.groupTransform.rotate.angle = (30 * (evt.date.getHours() % 12)) + (0.5 * evt.date.getMinutes());
-  minuteHand.groupTransform.rotate.angle = (6 * evt.date.getMinutes()) + (0.1 * evt.date.getSeconds());
-  secondHand.groupTransform.rotate.angle = (6 * evt.date.getSeconds());
-  hourHand24.groupTransform.rotate.angle = (15 * evt.date.getHours()) + (0.25 * evt.date.getMinutes());
+
+  if (debug) {
+    weekdayNum = (weekdayNum < 6) ? weekdayNum + 1 : 0;
+    date = (date < 31) ? date +1 : 1;
+  } else {
+    weekdayNum = evt.date.getDay();
+    date = evt.date.getDate(); 
+    hh = evt.date.getHours();
+    mm = evt.date.getMinutes();
+    ss = evt.date.getSeconds();
+  }
+
+  dayName = gettext(`day_short_${weekdayNum}`);
+  dateField.text = `${dayName} ${date}`
+  hourHand.groupTransform.rotate.angle = (30 * (hh % 12)) + (0.5 * mm);
+  minuteHand.groupTransform.rotate.angle = (6 * mm) + (0.1 * ss);
+  secondHand.groupTransform.rotate.angle = (6 * ss);
+  hourHand24.groupTransform.rotate.angle = (15 * hh) + (0.25 * mm);
+
   if (today.adjusted.steps != undefined) {
     stepsField.text = today.adjusted.steps;
     stepsMeter.sweepAngle = getProgressAngle(today.adjusted.steps, goals.steps)

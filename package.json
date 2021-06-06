@@ -1,6 +1,6 @@
 {
   "name": "fitbit-analog-clock",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "private": true,
   "license": "UNLICENSED",
   "devDependencies": {
@@ -21,7 +21,11 @@
       "atlas",
       "vulcan"
     ],
-    "i18n": {},
+    "i18n": {
+      "en-US": {
+        "name": "Classic"
+      }
+    },
     "defaultLanguage": "en-US"
   },
   "scripts": {
