@@ -1,10 +1,10 @@
 {
   "name": "fitbit-analog-clock",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": true,
   "license": "UNLICENSED",
   "devDependencies": {
-    "@fitbit/sdk": "~5.0.2",
+    "@fitbit/sdk": "~6.0.2",
     "@fitbit/sdk-cli": "^1.7.3"
   },
   "fitbit": {

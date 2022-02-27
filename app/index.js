@@ -1,5 +1,5 @@
 import clock from "clock";
-import document from "document";
+import * as document from "document";
 import { units } from "user-settings";
 import { HeartRateSensor } from "heart-rate";
 import { BodyPresenceSensor } from "body-presence";
