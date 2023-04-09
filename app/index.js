@@ -45,6 +45,11 @@ function loadSettings() {
     return fs.readFileSync(SETTINGS_FILE, SETTINGS_TYPE);
   }
   catch (ex) {
+    settings.setItem("accentColor", "gold");
+    settings.setItem("markerColor", "white");
+    settings.setItem("handsOpacity", 1.0);
+    settings.setItem("showBackgroundGradient", true);
+
     return {
       accentColor: "gold",
       markerColor: "white",
